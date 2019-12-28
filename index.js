@@ -40,7 +40,23 @@ function addNumbers(num1, num2) {
  * }
 */
 
-// function makePersonObject( id, name, email, ) {
+// function with id, name, email parameters
+function makePersonObject(id, name, email) {
+  // function returning an object
+  return {
+    // object with id, name, email properties, whose value is set to the arguments being passed in when the function is invoked
+    id: id,
+    name: name,
+    email: email
+  }
+}
+
+// invoking the function, passing in arguments
+makePersonObject(0, 'Cobrettie', 'CobraGmail');
+
+
+// ES6 just for kicks
+// const makePersonObject = (id, name, email) => {
 //   return {
 //     id: id,
 //     name: name,
@@ -48,16 +64,9 @@ function addNumbers(num1, num2) {
 //   }
 // }
 
-// ES6
-const makePersonObject = (id, name, email) => {
-  return {
-    id: id,
-    name: name,
-    email: email
-  }
-}
+// invoking the function, passing in arguments
+// makePersonObject(0, 'Cobrettie', 'CobraGmail');
 
-makePersonObject(0, 'Cobrettie', 'CobraGmail');
 
 /**
  * ### Challenge `getName`
@@ -72,9 +81,21 @@ makePersonObject(0, 'Cobrettie', 'CobraGmail');
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+
+function getName({name}) {
+  return (
+    `Hello, my name is ${name}`
+  )
 }
+
+
+// ES6
+// const getName = ({name: name}) => {
+//   return `Hello, my name is ${name}`;
+// }
+
+// console.log(getName({name: name}))
+
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -89,12 +110,20 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+
+function makeSmartPerson(name) {
+  return {
+    name: name,
+    sum: function(num1, num2) {
+      return num1 + num2;
+    },
+    speak: function() {
+      return (
+        `Hello, my name is ${name}`
+      )
+    }
+  }
 }
-
-
-
 
 
 /*
@@ -152,7 +181,11 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  /* code here */
+  const theFirst = inventory.find((item, index) => {
+    return index === 0
+  })
+
+  return `This is a ${theFirst.car_make} ${theFirst.car_model}` 
 }
 
 /**
