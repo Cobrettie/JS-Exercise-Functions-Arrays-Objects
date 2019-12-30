@@ -119,12 +119,11 @@ function makeSmartPerson(name) {
     },
     speak: function() {
       return (
-        `Hello, my name is ${name}`
+        `Hello, my name is ${name}.`
       )
     }
   }
 }
-
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -181,11 +180,7 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoByIndex(inventory, index) {
-  const theFirst = inventory.find((item, index) => {
-    return index === 0
-  })
-
-  return `This is a ${theFirst.car_make} ${theFirst.car_model}` 
+  return `This is a ${inventory[index].car_make} ${inventory[index].car_model}`
 }
 
 /**
@@ -200,11 +195,7 @@ function getCarInfoByIndex(inventory, index) {
  * it will return `This is a Lincoln Town Car`.
 */
 function getLastCarInfo(inventory) {
-  const lastCar = inventory.find((index) => {
-    return index
-  })
-
-  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
+  
 }
 
 /**
