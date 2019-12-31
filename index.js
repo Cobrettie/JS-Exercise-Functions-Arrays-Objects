@@ -211,7 +211,6 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  /* code here */
   return `This is a ${inventory[id - 1].car_make} ${inventory[id - 1].car_model}`
 }
 
@@ -223,9 +222,38 @@ function getCarInfoById(inventory, id) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+function sortCarInventory(inventory) {
+  inventory.sort(function (a, b) {
+    const carA = a.car_model.toUpperCase();
+    const carB = b.car_model.toUpperCase();
+
+    if (carA > carB) {
+      return 1;
+    } 
+    
+    if (carA < carB) {
+      return -1;
+    }
+  });
+
+  return inventory;
 }
+
+// solution grabbed from github cus I was StRuGgLiN
+// function sortCarInventory(inventory) {
+//   inventory.sort(function(a, b){
+//     var carA = a.car_model.toUpperCase();
+//     var carB = b.car_model.toUpperCase();
+//     if (carA < carB){
+//       return -1;
+// }
+//     if (carA > carB){
+//       return 1;
+// }
+//     return 0;
+//   });
+//   return inventory;
+// }
 
 /**
  * ### Challenge `getModelYears`
